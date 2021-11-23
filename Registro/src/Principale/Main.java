@@ -16,9 +16,9 @@ public class Main {
 		ArrayList<NomeEta> nomeEta = new ArrayList();
 		RegistroEtaCompleto registro = new RegistroEtaCompleto(nomeEta);
 		
-		
+// C:\\Users\\lucab\\Desktop\\EclipseProgetti\\Registro\\prova.txt	
 		System.out.println("Inserire nome file in un formato corretto: ");
-		String nomeFile = input.next();
+		String nomeFile = input.nextLine();
 		File file = new File(nomeFile);
 		
 		
@@ -26,17 +26,20 @@ public class Main {
 // ************************ CARICO DATI PRE-ESISTENTI DA FILE**********************************
         if(!file.isEmpty()) 
         {
-      	  for(NomeEta s : registro.getRegistro()) 
+      	  for(NomeEta s : file.leggiDaFile()) 
       	  {
-      		  nomeEta.add(s);
+      		  registro.addElemento(s);
       	  }
       	  System.out.println("Carico dei dati da file effettuato con successo !");
 			  System.out.println("");
 			  System.out.println("");
         }
+        
+        else
+        	System.out.println("Il file è vuoto !");
 //*********************** FINE CARICO DATI PRE-ESISTENTI DA FILE**********************************
 		
-        
+
         
 		int scelta = -1;
 		boolean exit = true; 
@@ -72,7 +75,8 @@ public class Main {
               
 			  switch(scelta) 
 			  {
-			    case 1: 
+			    case 1: 	
+			    	   input.nextLine();
 			    	   System.out.println("Inserisci il nome: ");
 			    	   String daInserire = input.nextLine();
 			    	   if(registro.findElemento(daInserire)) 
@@ -80,6 +84,7 @@ public class Main {
 			    		   System.out.println("Studente gia presente nel registro !");
 			    		   break;
 			    	   }
+			    	   //input.nextLine();
 			    	   System.out.println("Inserisci l'età: ");
 			    	   int eta = input.nextInt();
 			    	   NomeEta studente = new NomeEta(daInserire,eta);
@@ -97,6 +102,7 @@ public class Main {
 			    		   break;
 			    	   }
 			    	  
+			    	   input.nextLine();
 			    	   System.out.println("Chi vuoi rimuovere? ");
 			    	   String daRimuovere = input.nextLine();
 			    	   
@@ -131,6 +137,7 @@ public class Main {
 			    		   break;
 			    	   }
 			    	   
+			    	   input.nextLine();
 			    	   System.out.println("Di chi vuoi incrementare l'età? ");
 			    	   String daIncrementare = input.nextLine();
 			    	   

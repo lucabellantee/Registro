@@ -7,7 +7,7 @@ public class NomeEta implements Serializable {
 	private String nome;
 	private int età;
 	
-	public NomeEta(String nome , int eta) 
+	public NomeEta(String nome , int età) 
 	{
 	  this.nome = nome;
 	  this.età = età;

@@ -55,7 +55,7 @@ public class RegistroEtaCompleto implements Serializable{
 	{
 		if(!this.findElemento(persona.getNome())) 
 		{
-			this.getRegistro().add(persona);
+			this.nomeEta.add(persona);
 			return true;
 		}
 		
